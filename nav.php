@@ -29,10 +29,10 @@
                     <a class="nav-link" href="upload.php">upload</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Temp sign up</a>
+                    <a class="nav-link" href="auth/signup.php">Temp sign up</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="login.php">Temp Log in</a>
+                    <a class="nav-link" href="auth/login.php">Temp Log in</a>
                     </li>
                 </ul>
                 </div>

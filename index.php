@@ -37,18 +37,18 @@ if(isset($_SESSION['username'])){
             <table>
                 <?php
                     if(isset($_GET['filter']) && $_GET['Category'] != 'none'){
-                            $filter = " WHERE `category`=$_GET[Category]";
+                            $filter = " WHERE `category`= '$_GET[Category]'";
                             
                     }else{
                         $filter = '';
                     }
                     $grabPosts = "SELECT * FROM `posts`" . $filter . ";";
-                    echo ($grabPosts);
-                    $grab = mysqli_query($conn,$grabPosts);
+                    $grab = mysqli_query($conn,$grabPosts) or DIE('Query failed: ' . mysqli_error($conn));
                     while($row = mysqli_fetch_array($grab)){
                         extract($row);
-                        echo "<h4>$title<br></h4>";
-                        echo "<small>Published by: $author</small><br>";
+                        echo "<h4 name='T$title'>$title</h4>";
+                        echo "<label for='T$title'>Published by: $author</label>";
+                        // echo "<small>Published by: $author</small><br>";
                     }
 
                 ?>
