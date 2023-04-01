@@ -107,7 +107,7 @@ if($_SESSION['access'] != 1) {
                             foreach($labels as $cat){
                                 $grabPosts = mysqli_query($conn,$postSort."$cat;");
                                 $count = 0;
-                                while($row = mysqli_fetch_array($grabPosts)){
+                                while($row = mysqli_fetch_array($conn,$grabPosts)){
                                     $count++;
                                 }
                                 $postPerCategory[$cat] = $count;
