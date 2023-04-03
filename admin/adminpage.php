@@ -85,15 +85,16 @@ if($_SESSION['access'] != 1) {
 </div>
 
                     <div class="col">
-                        <canvas class="mh-100 mw-100" id="myChart"></canvas>
+                        <canvas class="mh-100 " id="myChart"></canvas>
                     </div>
                 </div>
                 <!-- Row 2 - Edit Posts and Posts Over Time -->
                 <div class="row h-50">
+                    <!-- Column 1b - Posts over the last 7 days -->
                     <div class="col">
-                        Placeholder for Chart
+                        <canvas class="mh-100 mw-100" id="lineChart"></canvas>
                     </div>
-                    <!-- Column 1b - Edit and Delete Posts -->
+                    <!-- Column 2b - Edit and Delete Posts -->
                     <div class="col">
                         
                     <h3 class="text-center">List of Posts</h3>
@@ -143,8 +144,7 @@ if($_SESSION['access'] != 1) {
                 </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
-
-
+// Posts Per Category
                 const ctx = document.getElementById('myChart');
 
                 new Chart(ctx, {
@@ -204,8 +204,68 @@ if($_SESSION['access'] != 1) {
                     }
                     }
                 });
+// Posts per Days
+                const cty = document.getElementById('lineChart');
+
+                new Chart(cty, {
+                    type: 'line',
+                    data: {
+                    labels: [
+                        <?php
+
+                            $days = array();
+                            for ($i=0;$i<7;$i++) {
+                                $days[$i] = date("Y-m-d", strtotime("-$i days"));
+                            }
+                            $postsPerDay = array();
+                            foreach($days as $day){
+                                $postsPerDay[$day] = 0;
+                            }
+                            while($row = mysqli_fetch_array($getPosts)){
+                                $date = date("Y-m-d", strtotime($row['pdate']));
+                                if (array_key_exists($date,$postsPerDay)){
+                                    $postsPerDay[$date]++;
+                                }
+                            }
+                            $postsPerDay = array_reverse($postsPerDay);
+                            foreach ($postsPerDay as $date => $count){
+                                echo "'$date', ";
+                            }
+                        ?>
+                    ],
+                    datasets: [{
+                        label: '# of Posts',
+                        data: [
+                            <?php 
+                                foreach($postsPerDay as $count){
+                                    echo "'$count', ";
+                                }
+                            ?>
+                        ],
+                        borderWidth: 1
+                    }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        plugins: {
+                            title: {
+                                display:true,
+                                text: '# of Posts in The Last 7 Days'
+                            }
+                        }
+                    }
+                });
             </script>
         </body>
         
     </html>
-<?php } ?>
+<?php 
+print_r($postsPerDay);
+} ?>
