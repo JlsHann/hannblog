@@ -37,12 +37,12 @@ if(isset($_SESSION['username'])){
             <table>
                 <?php
                     if(isset($_GET['filter']) && $_GET['Category'] != 'none'){
-                            $filter = " WHERE `category`= '$_GET[Category]'";
+                            $filter = " AND `category`= '$_GET[Category]'";
                             
                     }else{
                         $filter = '';
                     }
-                    $grabPosts = "SELECT * FROM `posts`" . $filter . ";";
+                    $grabPosts = "SELECT * FROM `posts` WHERE `visible` = 'True'" . $filter . ";";
                     $grab = mysqli_query($conn,$grabPosts) or DIE('Query failed: ' . mysqli_error($conn));
                     while($row = mysqli_fetch_array($grab)){
                         extract($row);

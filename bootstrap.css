@@ -2171,7 +2171,15 @@ progress {
 }
 
 .table>thead {
+  position: sticky;
   vertical-align: bottom;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
 }
 
 .table-group-divider {

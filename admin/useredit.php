@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('conn.php');
+require('../conn.php');
 $user = $_SESSION['username'];
 
 if(isset($_POST['Submit'])){
