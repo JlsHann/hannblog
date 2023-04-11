@@ -1,13 +1,13 @@
 <?php
 session_start();
-require('../conn.php');
+require('../../conn.php');
 $user = $_SESSION['username'];
 
 if(isset($_POST['Submit'])){
     if($_POST['username'] != null && $_POST['fname'] != null && $_POST['sname'] != null){
         $update = "UPDATE `user` SET `username`='$_POST[username]', `fname`='$_POST[fname]', `sname`='$_POST[sname]', `access`='$_POST[access]' WHERE `username`='$_GET[username]'";
         mysqli_query($conn, $update) or DIE('couldnt connect');
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }else{
         $msg = "Please fill all fields";

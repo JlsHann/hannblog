@@ -1,8 +1,8 @@
 <?php
 session_start();
-require('../conn.php');
+require('../../conn.php');
 if($_SESSION['access'] != 1){
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }else{
 
 
@@ -17,7 +17,7 @@ if($_SESSION['access'] != 1){
         if($_POST['title'] != null && $_POST['content'] != null){
             $updateQuery = "UPDATE `posts` SET `title`='$_POST[title]', `content`='$_POST[content]' WHERE `post_id`=$_GET[id]";
             mysqli_query($conn, $updateQuery) or DIE('error: ' . mysqli_error($conn));
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit();
         }else{
             echo "Fill all fields";

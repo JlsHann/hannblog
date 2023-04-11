@@ -16,5 +16,5 @@ if(isset($_GET['action']) && ($_GET['action'] == 'Activate' || $_GET['action'] =
 }
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
-header("Location: adminpage.php");
+header("Location: index.php");
 ?>

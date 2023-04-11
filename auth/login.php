@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
                 $_SESSION['username'] = $username;
                 $_SESSION['access'] = $row['access'];
                 if($row['access'] == "1"){
-                    header("Location: ../admin/adminpage.php");
+                    header("Location: ../admin/index.php");
                 }else{
                     header("location: ../index.php");
                 }

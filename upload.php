@@ -13,7 +13,7 @@ if(!$loggedIn){
 if(isset($_POST['submit'])){
     extract($_POST);
     if($title != null && $content != null){
-        $uploadQuery = "INSERT INTO `posts` (`post_id`, `title`, `content`, `author`, `pdate`, `category`) VALUES (NULL, '$title', '$content', '$author', '$dop', '$category')";
+        $uploadQuery = "INSERT INTO `posts` (`post_id`, `title`, `content`, `author`, `pdate`, `category`, `visible`) VALUES (NULL, '$title', '$content', '$author', '$dop', '$category','True')";
         mysqli_query($conn,$uploadQuery);
     }else{
         echo "Somethings unset bro";

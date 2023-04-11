@@ -24,17 +24,17 @@
                 <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link" href="upload.php">upload</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="auth/signup.php">Temp sign up</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="auth/login.php">Temp Log in</a>
-                    </li>
-                </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="upload.php">upload</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="auth/signup.php">Temp sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="auth/login.php">Temp Log in</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
