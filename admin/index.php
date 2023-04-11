@@ -279,7 +279,7 @@ if($_SESSION['access'] != 1) {
                         data: [
                             <?php 
                                 foreach($postsPerDay as $count){
-                                    echo "'$count', ";
+                                    echo "$count, ";
                                 }
                             ?>
                         ],

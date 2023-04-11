@@ -42,7 +42,7 @@ if(isset($_POST['add'])){
             $action = "Show";
             $button = "btn btn-secondary";
         }
-        $form[$count] = "<tr><br><b><td>$row[category]</td></b><td><p>$row[summary]</p></td> <input type='hidden' name='id' value='$row[category_id]'> <td><button type='submit'  name='edit' value ='edit' class='btn btn-primary'>Edit</button></td><td> <a class='$button'  href='disable.php?id=$row[category_id]&action=$action'>$action</a></td></tr>";
+        $form[$count] = "<tr><br><b><td>$row[category]</td></b><td><p>$row[summary]</p></td> <input type='hidden' name='id' value='$row[category_id]'> <td><button type='submit'  name='edit' value ='edit' class='btn btn-primary'>Edit</button></td><td> <a class='$button'  href='disablecat.php?id=$row[category_id]&action=$action'>$action</a></td></tr>";
         $count++;
     }
 

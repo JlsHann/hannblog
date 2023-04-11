@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $name = $_POST['fname'];
     $surname = $_POST['surname'];
     if ($username != null and $password != null) {
-        $query = "INSERT INTO `user` (`user_id`, `username`, `password`, `dor`, `access`,`fname`,`sname`,`avatar`) VALUES (NULL, '$username', '$password', '$date', '2','$name','$surname','default.jpg'); ";
+        $query = "INSERT INTO `user` (`user_id`, `username`, `password`, `dor`, `access`,`fname`,`sname`,`active`,`avatar`) VALUES (NULL, '$username', '$password', '$date', '2','$name','$surname','True','default.jpg'); ";
         $search = "SELECT * from user";
         $verification = mysqli_query($conn, $search) or DIE("Bad Verification");
         while ($row = mysqli_fetch_array($verification)) {
